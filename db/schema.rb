@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811024907) do
+ActiveRecord::Schema.define(version: 20150812015202) do
 
   create_table "bugs", force: :cascade do |t|
     t.integer  "severity"
@@ -38,8 +38,9 @@ ActiveRecord::Schema.define(version: 20150811024907) do
     t.text     "description"
     t.integer  "task_id"
     t.string   "task_type"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "programmer_id"
   end
 
 end

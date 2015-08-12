@@ -20,12 +20,7 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :task_id %><br>
-    <%= f.number_field :task_id %>
-  </div>
-  <div class="field">
-    <%= f.label :task_type %><br>
-    <%= f.text_field :task_type %>
+    <%= f.select :programmer_id, options_for_select( Programmer.all.map {|programmer| [full_name(programmer), programmer.id] } ) %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -15,6 +15,7 @@ class TicketsController < ApplicationController
   # GET /tickets/new
   def new
     @ticket = Ticket.new
+    @programmers = Programmer.all
   end
 
   # GET /tickets/1/edit
@@ -25,7 +26,8 @@ class TicketsController < ApplicationController
   # POST /tickets.json
   def create
     @ticket = Ticket.new(ticket_params)
-
+    Rails.logger.info "LOOK AT ME!!!!"
+    Rails.logger.info(ticket_params)
     respond_to do |format|
       if @ticket.save
         format.html { redirect_to @ticket, notice: 'Ticket was successfully created.' }
@@ -69,6 +71,6 @@ class TicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.require(:ticket).permit(:title, :description, :task_id, :task_type)
+      params.require(:ticket).permit(:title, :description, :task_id, :task_type, :programmer_id)
     end
 end
